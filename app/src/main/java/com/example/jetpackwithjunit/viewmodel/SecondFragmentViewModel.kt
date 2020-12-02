@@ -1,8 +1,6 @@
 package com.example.jetpackwithjunit.viewmodel
 
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.example.jetpackwithjunit.utils.toLiveData
 import com.example.jetpackwithjunit.utils.trigger
 import io.reactivex.BackpressureStrategy
@@ -23,6 +21,11 @@ internal class SecondFragmentViewModel : ViewModel(),SecondFragmentContract.Inpu
     val inputs : SecondFragmentContract.Inputs = this
     val outputs : SecondFragmentContract.Outputs = this
    val btnClickedSubject = PublishSubject.create<Unit>()
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    fun start(){
+        print("On Create method")
+    }
 
     override fun btnClicked() {
         btnClickedSubject.trigger()
