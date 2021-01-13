@@ -38,15 +38,10 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
          lifecycle.addObserver(viewModel)
-//        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-//        }
+
         with(viewModel.inputs){
             button_first.setOnClickListener{
                 viewModel.btnClicked()
-               // val url ="https://bank-deeplink.herokuapp.com/email/verify"
-               // val url = "https://bank-deeplink.herokuapp.com/email/verify?token=_ZKHESVXA2De-gY5vpatfXGAuOnnqU04"
-              //  startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("$url?=123abc"))); true
             }
         }
         with(viewModel.outputs){

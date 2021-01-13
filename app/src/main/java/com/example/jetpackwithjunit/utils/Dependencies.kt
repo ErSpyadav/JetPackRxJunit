@@ -1,14 +1,5 @@
 package com.example.jetpackwithjunit.utils
 
-object ProjectModules {
-    const val core = ":core"
-    const val onboarding = ":onboarding"
-    const val conversationalBanking = ":conversational-banking"
-    const val authToken = ":auth-token"
-    const val utils = ":utils"
-    const val testCommon = ":test-common"
-    const val tsbComponents = ":tsb-components"
-}
 
 object AndroidSettings {
     const val compileSdk = 29

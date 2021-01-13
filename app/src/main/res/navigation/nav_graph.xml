@@ -20,9 +20,23 @@
         android:name="com.example.jetpackwithjunit.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_scecond_to_thirdfragment_next"
+            app:destination="@id/thirdFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.jetpackwithjunit.ThirdFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_third">
+
+        <argument android:name="imageUrl"
+            app:argType="string"
+            android:defaultValue="http://sohamerp.com/avo/avo_privacy_policy.html"/>
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_thirdfragment_to_firstfragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

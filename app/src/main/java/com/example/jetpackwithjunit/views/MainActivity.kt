@@ -7,19 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.jetpackwithjunit.R
-import com.example.jetpackwithjunit.dagger.Car
-import com.example.jetpackwithjunit.dagger.DaggerCarComponent
 
 class MainActivity : AppCompatActivity() {
-    var car :Car?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-       car = DaggerCarComponent.create().car
-        car?.drive()
-        car?.carDetail()
-
-
 
         setSupportActionBar(findViewById(R.id.toolbar))
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
