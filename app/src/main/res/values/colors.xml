@@ -5,6 +5,43 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+        <color name="colorPrimary">#6200EE</color>
+        <color name="colorPrimaryDark">#3700B3</color>
+        <color name="colorAccent">#03DAC5</color>
+        <color name="transparent">#00000000</color>
+        <color name="white">#FFFFFF</color>
+        <color name="black1">#000B0F</color>
+        <color name="black2">#000B0FCC</color>
+        <color name="mediumTextColor">#000B0F</color>
+        <color name="regularTextColor">#00283D</color>
+        <color name="regularTextColorBlack">#010E12</color>
+        <color name="fuelProgressOutlineColor">#bababa</color>
+        <color name="black">#000000</color>
+        <color name="color_error">#E42C1B</color>
+        <color name="gray">#72727E</color>
+        <color name="dialog_message_color">#8A000000</color>
+        <color name="dialog_btn_text_color">#4CA1F6</color>
+        <color name="color_mpin">#00B0F1</color>
+        <color name="pin_normal">#6B767E</color>
+        <color name="pin_color_focuses">#00B0F1</color>
+        <color name="pin_color_error">#E80000</color>
+        <color name="blurColor">#67676E</color>
+        <color name="maintance_color">#253E4C</color>
+        <color name="loading_text_color">#262626</color>
+        <color name="loading_background_color">#F4F4F4</color>
+        <color name="hazard_activated_color">#00B0F1</color>
+        <color name="loc_ig_on_button_color">#BDBEBF</color>
+        <color name="notification_selected_tab_color">#0EBADD</color>
+        <color name="notification_btn_txt_color">#0C1017</color>
+        <color name="light_grey">#E8E8E8</color>
+        <color name="menu_title_background">#FAFAFA</color>
+        <color name="gray_dark">#9D9D9D</color>
+        <color name="white_toast_transparent">#E0FFFFFF</color>
+        <color name="toast_message_text_color">#000B0F</color>
+        <color name="maintenance_health_check_normal_color">#01B0F1</color>
+        <color name="maintenance_health_check_background_color">#F4FBFF</color>
+        <color name="call_center_desc_color">#222222</color>
+        <color name="healthCheck_abs_color">#F47C19</color>
+
+
 </resources>

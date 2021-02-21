@@ -1,8 +1,6 @@
 package com.example.jetpackwithjunit.di
 
-import com.example.jetpackwithjunit.DashboardFragment
-import com.example.jetpackwithjunit.LoginFragment
-import com.example.jetpackwithjunit.MPinFragment
+import com.example.jetpackwithjunit.*
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -17,5 +15,15 @@ interface DashBoardFragmentProvider {
 
     @ContributesAndroidInjector
     fun provideDashBoardFragmentFactory() : DashboardFragment
+
+    @ContributesAndroidInjector
+    fun provideTab1FragmentFactory() : Tab1Fragment
+
+    @ContributesAndroidInjector
+    fun provideTab2FragmentFactory() : Tab2Fragment
+
+    @ContributesAndroidInjector
+    fun provideTab3FragmentFactory() : Tab3Fragment
+
 
 }

@@ -34,4 +34,8 @@ class DashboardFragmentViewModel : BaseViewModel<DashboardNavigator>(),ThirdFrag
     override val goToNextScreen: LiveData<Unit>
         get() = btnClickSubject.toLiveData()
 
+    fun getViewModelName():String{
+        return "DashBoard ViewModel"
+    }
+
 }
