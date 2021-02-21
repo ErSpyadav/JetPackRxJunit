@@ -1,10 +1,13 @@
 package com.example.jetpackwithjunit.viewmodel
 
 import androidx.lifecycle.*
+import com.example.jetpackwithjunit.navigator.MpinNavigator
+import com.example.jetpackwithjunit.utils.BaseViewModel
 import com.example.jetpackwithjunit.utils.toLiveData
 import com.example.jetpackwithjunit.utils.trigger
 import io.reactivex.BackpressureStrategy
 import io.reactivex.subjects.PublishSubject
+import javax.inject.Inject
 
 interface SecondFragmentContract {
     interface Inputs {
@@ -16,7 +19,7 @@ interface SecondFragmentContract {
     }
 }
 
-internal class SecondFragmentViewModel : ViewModel(),SecondFragmentContract.Inputs,SecondFragmentContract.Outputs,LifecycleObserver {
+class MPinFragmentViewModel @Inject constructor(): BaseViewModel<MpinNavigator>(),SecondFragmentContract.Inputs,SecondFragmentContract.Outputs,LifecycleObserver {
 
     val inputs : SecondFragmentContract.Inputs = this
     val outputs : SecondFragmentContract.Outputs = this

@@ -2,6 +2,8 @@ package com.example.jetpackwithjunit.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.example.jetpackwithjunit.navigator.DashboardNavigator
+import com.example.jetpackwithjunit.utils.BaseViewModel
 import com.example.jetpackwithjunit.utils.toLiveData
 import io.reactivex.subjects.PublishSubject
 
@@ -14,7 +16,7 @@ interface ThirdFragmentContract{
     }
 }
 
-internal class ThirdFragmentViewModel : ViewModel(),ThirdFragmentContract.Input,ThirdFragmentContract.Output,LifecycleObserver {
+class DashboardFragmentViewModel : BaseViewModel<DashboardNavigator>(),ThirdFragmentContract.Input,ThirdFragmentContract.Output,LifecycleObserver {
     private  val TAG = "ThirdFragmentViewModel"
     val inputs : ThirdFragmentContract.Input = this
     val outputs : ThirdFragmentContract.Output = this

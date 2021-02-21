@@ -17,19 +17,19 @@ import org.mockito.Mockito.mock
 import java.net.SocketException
 
 @RunWith(JUnit4::class)
-class FirstFragmentViewModelTest {
+class LoginFragmentViewModelTest {
         @get:Rule
         val instantTaskExecutorRule = InstantTaskExecutorRule()
 
         @Mock
         lateinit var userService: ApiService
 
-        lateinit var mainViewModel: FirstFragmentViewModel
+        lateinit var mainViewModel: LoginFragmentViewModel
 
         @Before
         fun setUp() {
             MockitoAnnotations.initMocks(this)
-            this.mainViewModel = FirstFragmentViewModel(this.userService)
+            this.mainViewModel = LoginFragmentViewModel()
         }
 
         @Test

@@ -3,7 +3,9 @@ package com.example.jetpackwithjunit.viewmodel
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.jetpackwithjunit.model.Repos
+import com.example.jetpackwithjunit.navigator.LoginNavigator
 import com.example.jetpackwithjunit.retrofit.ApiService
+import com.example.jetpackwithjunit.utils.BaseViewModel
 import com.example.jetpackwithjunit.utils.LiveDataResult
 import com.example.jetpackwithjunit.utils.toLiveData
 import com.example.jetpackwithjunit.utils.trigger
@@ -14,6 +16,7 @@ import io.reactivex.subjects.PublishSubject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 interface FirstFragmentContract {
     interface Inputs {
@@ -25,24 +28,25 @@ interface FirstFragmentContract {
     }
 }
 
- class FirstFragmentViewModel(
-    private val userService: ApiService
-) :   ViewModel(),FirstFragmentContract.Inputs,FirstFragmentContract.Outputs,LifecycleObserver {
+ class LoginFragmentViewModel  @Inject constructor(): BaseViewModel<LoginNavigator>(),FirstFragmentContract.Inputs,FirstFragmentContract.Outputs,LifecycleObserver {
 
     val inputs : FirstFragmentContract.Inputs = this
     val outputs : FirstFragmentContract.Outputs = this
    val btnClickedSubject = PublishSubject.create<Unit>()
 
+     @Inject
+     lateinit var apiService: ApiService
+
     /*restful*/
     val repositoriesLiveData = MutableLiveData<LiveDataResult<List<Repos>>>()
     val loadingLiveData = MutableLiveData<Boolean>()
 
-//    init {
-//        GlobalScope.launch(Dispatchers.IO) {
-//            fetchUserRepositories("ErSpyadav")
-//        }
-//
-//    }
+    init {
+        GlobalScope.launch(Dispatchers.IO) {
+            fetchUserRepositories("ErSpyadav")
+        }
+
+    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun start(){
@@ -62,7 +66,7 @@ interface FirstFragmentContract {
      */
     fun fetchUserRepositories(githubUser: String) {
         this.setLoadingVisibility(true)
-        this.userService.getRepositories(githubUser).subscribe(GetRepositoriesConsumer())
+     //   this.userService.getRepositories(githubUser).subscribe(GetRepositoriesConsumer())
     }
 
     /**
@@ -78,23 +82,23 @@ interface FirstFragmentContract {
      */
     inner class GetRepositoriesConsumer : MaybeObserver<List<Repos>> {
         override fun onSubscribe(d: Disposable) {
-            this@FirstFragmentViewModel.repositoriesLiveData.postValue(LiveDataResult.loading())
+            this@LoginFragmentViewModel.repositoriesLiveData.postValue(LiveDataResult.loading())
         }
 
         override fun onError(e: Throwable) {
-            this@FirstFragmentViewModel.repositoriesLiveData.postValue(LiveDataResult.error(e))
-            this@FirstFragmentViewModel.setLoadingVisibility(false)
+            this@LoginFragmentViewModel.repositoriesLiveData.postValue(LiveDataResult.error(e))
+            this@LoginFragmentViewModel.setLoadingVisibility(false)
             print("onError :\n"+e.localizedMessage)
         }
 
         override fun onSuccess(t: List<Repos>) {
-            this@FirstFragmentViewModel.repositoriesLiveData.postValue(LiveDataResult.succes(t))
-            this@FirstFragmentViewModel.setLoadingVisibility(false)
+            this@LoginFragmentViewModel.repositoriesLiveData.postValue(LiveDataResult.succes(t))
+            this@LoginFragmentViewModel.setLoadingVisibility(false)
             print("onSuccess :\n"+t.get(0).toString())
         }
 
         override fun onComplete() {
-            this@FirstFragmentViewModel.setLoadingVisibility(false)
+            this@LoginFragmentViewModel.setLoadingVisibility(false)
         }
 
     }
