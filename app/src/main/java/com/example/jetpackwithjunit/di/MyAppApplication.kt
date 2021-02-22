@@ -1,19 +1,17 @@
 package com.example.jetpackwithjunit.di
 
 import android.app.Application
-import com.example.jetpackwithjunit.di.module.AppModule
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
-import javax.inject.Inject
+import androidx.appcompat.app.AppCompatDelegate
+import dagger.hilt.android.HiltAndroidApp
 
-class MyAppApplication: Application(), HasAndroidInjector {
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+
+@HiltAndroidApp
+class MyAppApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        AppInjector.init(this, AppModule())
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
     }
-    override fun androidInjector() = dispatchingAndroidInjector
-}
 
+
+}

@@ -1,11 +1,11 @@
 package com.example.jetpackwithjunit.di.module
 
 import android.util.Log
-import com.example.jetpackwithjunit.retrofit.ApiService
-import com.example.jetpackwithjunit.retrofit.ApiUrl
-import com.example.jetpackwithjunit.retrofit.RetrofitClient
+import com.example.jetpackwithjunit.retrofit.*
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -13,8 +13,10 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 @Module
+@InstallIn(SingletonComponent::class)
 class RetrofitModule {
 
     @Provides
@@ -51,4 +53,8 @@ class RetrofitModule {
             .addInterceptor(RetrofitClient.interceptor).build()
 
     }
+    @Provides
+    @Singleton
+    fun provideSConnectApiRepository(apiHelper: AppApiRepositoryImpl): AppApiRepository = apiHelper
+
 }

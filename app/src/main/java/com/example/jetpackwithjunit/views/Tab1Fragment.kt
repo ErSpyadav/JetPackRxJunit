@@ -12,10 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.jetpackwithjunit.adapter.NotificationAdapter
 import com.example.jetpackwithjunit.databinding.FragmentTab1Binding
 import com.example.jetpackwithjunit.model.NotificationModel
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@AndroidEntryPoint
 class Tab1Fragment : Fragment() , NotificationAdapter.NotificationClickLister {
     private lateinit var binding : FragmentTab1Binding
 

@@ -1,13 +1,20 @@
 package com.example.jetpackwithjunit.retrofit
 
-import androidx.lifecycle.LiveData
 import com.example.jetpackwithjunit.model.Repos
+import com.example.jetpackwithjunit.model.User
 import io.reactivex.Maybe
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("users/{user}/repos")
-    fun getRepositories(@Path("user") gitUser : String) : Maybe<List<Repos>>
+  @GET("users")
+  fun getAllUser(): Single<List<User>>
+
+  @GET("users/{id}")
+  fun getUserById(@Path("id") id : Int) : Single<User>
+
+
+    //https://jsonplaceholder.typicode.com/users
 }

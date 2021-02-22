@@ -37,6 +37,7 @@
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/purple_700"
             app:hintTextAppearance="@style/HintText"
+            android:layout_marginTop="@dimen/dp_24"
             app:counterEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText

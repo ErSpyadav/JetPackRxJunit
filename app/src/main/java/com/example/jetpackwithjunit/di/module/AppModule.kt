@@ -1,11 +1,14 @@
 package com.example.jetpackwithjunit.di.module
 
 import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 /**
  * Include others modules on top of AppModule
  */
 
-@Module(includes = [ViewModelModule::class,RetrofitModule::class,PreferenceConnectorModule::class])
+@InstallIn(SingletonComponent::class)
+@Module(includes = [RetrofitModule::class,PreferenceConnectorModule::class])
 open class AppModule {
 }

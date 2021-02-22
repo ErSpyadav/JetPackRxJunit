@@ -17,10 +17,12 @@ import com.example.jetpackwithjunit.utils.navigateObserver
 import com.example.jetpackwithjunit.viewmodel.DashboardFragmentViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
+@AndroidEntryPoint
 class DashboardFragment : Fragment() {
     private lateinit var viewModel: DashboardFragmentViewModel
     private val args by navArgs<DashboardFragmentArgs>()

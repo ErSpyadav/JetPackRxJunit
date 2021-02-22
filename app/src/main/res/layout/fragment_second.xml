@@ -9,7 +9,7 @@
         android:id="@+id/button_singleTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Single task"
+        android:text="WorkManager Single task"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -17,7 +17,7 @@
         android:id="@+id/button_periodicTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Second Fragment"
+        android:text="WorkManager Periodic Task"
         app:layout_constraintTop_toBottomOf="@id/button_singleTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -26,7 +26,7 @@
         android:id="@+id/textview_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Second fragment"
+        android:text="User Detail"
         app:layout_constraintBottom_toTopOf="@id/button_second"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +36,18 @@
         android:id="@+id/button_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Second Fragment"
+        android:text="Go To Next Screen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_second" />
+    <Button
+        android:id="@+id/fetch_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch the UI Data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_second" />
 </androidx.constraintlayout.widget.ConstraintLayout>

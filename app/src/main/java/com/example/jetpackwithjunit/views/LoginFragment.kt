@@ -6,36 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import com.example.jetpackwithjunit.di.Injectable
 import com.example.jetpackwithjunit.model.Repos
-import com.example.jetpackwithjunit.retrofit.RetrofitClient
 import com.example.jetpackwithjunit.utils.LiveDataResult
-import com.example.jetpackwithjunit.utils.MainViewModelFactory
 import com.example.jetpackwithjunit.utils.navigateObserver
 import com.example.jetpackwithjunit.viewmodel.LoginFragmentViewModel
-import dagger.android.support.AndroidSupportInjection
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_first.*
-import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class LoginFragment : Fragment() , Injectable {
+@AndroidEntryPoint
+class LoginFragment : Fragment()  {
 
-    @Inject
-    lateinit var viewModel: LoginFragmentViewModel
+    val viewModel: LoginFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //  // Create ViewModel and bind observer
-//        val factory = MainViewModelFactory(RetrofitClient.retrofitClient)
-//        this.viewModel =
-//            ViewModelProviders.of(this, factory).get(LoginFragmentViewModel::class.java)
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_first, container, false)
@@ -48,7 +40,6 @@ class LoginFragment : Fragment() , Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AndroidSupportInjection.inject(this)
         lifecycle.addObserver(viewModel)
 
         this.viewModel.repositoriesLiveData.observe(viewLifecycleOwner, this.dataObserver)

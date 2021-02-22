@@ -7,9 +7,12 @@ import com.example.jetpackwithjunit.viewmodel.LoginFragmentViewModel
 import com.example.jetpackwithjunit.viewmodel.MPinFragmentViewModel
 import dagger.Binds
 import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoMap
 
 @Module
+@InstallIn(SingletonComponent::class)
 public abstract class ViewModelModule {
     @Binds
     @IntoMap
