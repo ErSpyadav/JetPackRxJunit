@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.work.*
@@ -12,6 +13,8 @@ import com.example.jetpackwithjunit.viewmodel.MPinFragmentViewModel
 import com.example.jetpackwithjunit.workmanager.NotificationWorkRequest
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_second.*
+import java.text.NumberFormat
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 /**
@@ -49,9 +52,15 @@ class MPinFragment : Fragment() {
         }
         button_singleTask.setOnClickListener {
             ScheduleTask()
+        //    val number = NumberFormat.getNumberInstance(Locale.US).format("9999999".toInt())
+         //   Toast.makeText(requireContext() ,"Number : $number" , Toast.LENGTH_LONG).show()//9,999,999
+           //loginViewModel.getCricketAndFootBal()//zip Operator
+            loginViewModel.getFootBalFanMap()//Map Operarotor
         }
         button_periodicTask.setOnClickListener {
-            PeriodicTask()
+           // PeriodicTask()
+           // loginViewModel.getFootbalFanDetailFlatMap()//flatMap
+            loginViewModel.checkFlowableObservable()
         }
         fetch_btn.setOnClickListener {
            loginViewModel.fetchUser()
